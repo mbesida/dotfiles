@@ -108,6 +108,8 @@ alias ll="ls -la"
 alias python="python3"
 alias ipp='curl https://ipecho.net/plain; echo'
 alias rmrf='rm -rf'
+alias stowallshow='stow --adopt -nvt ~ *'
+alias stowall='stow --adopt -vt ~ *'
 
 ###ssh-agent stuff begin
 env=~/.ssh/agent.env
