@@ -103,15 +103,16 @@ source $ZSH/oh-my-zsh.sh
 
 # My aliases
 alias zshrc="nano ~/.zshrc"
-alias winhome="cd /mnt/c/Users/$USER"
 alias ll="ls -la"
 alias python="python3"
 alias ipp='curl https://ipecho.net/plain; echo'
-alias rmrf='rm -rf'
-alias stowallshow='stow --adopt -nvt ~ *'
-alias stowall='stow --adopt -vt ~ *'
 
-###ssh-agent stuff begin
+#if in wsl
+if [ -d "/mnt/c/Users/$USER"] ; then
+    alias winhome="cd /mnt/c/Users/$USER"
+fi
+
+###ssh-agent stuff
 env=~/.ssh/agent.env
 
 agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
@@ -133,7 +134,7 @@ elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
 fi
 
 unset env
-###ssh-agent stuff end
+###ssh-agent stuf
 
 
 
