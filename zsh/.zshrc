@@ -106,9 +106,10 @@ alias zshrc="nano ~/.zshrc"
 alias ll="ls -la"
 alias python="python3"
 alias ipp='curl https://ipecho.net/plain; echo'
+alias sizeof='du -hd 1'
 
 #if in wsl
-if [ -d "/mnt/c/Users/$USER"] ; then
+if [ -d "/mnt/c/Users/$USER" ] ; then
     alias winhome="cd /mnt/c/Users/$USER"
 fi
 
