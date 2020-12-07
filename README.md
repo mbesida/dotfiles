@@ -1,5 +1,3 @@
-## HOWTO
-
 Parent directory is a default directory where links are put after `stow` command. 
 
 - `stow -R *` restow all
