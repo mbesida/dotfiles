@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$USER/.oh-my-zsh"
@@ -30,7 +30,7 @@ ZSH_THEME="intheloop"
 # DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=5
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -102,19 +102,17 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 
-
 # aliases
 alias zshrc="nano ~/.zshrc"
-alias ll="ls -la"
-alias python="python3"
-alias ipp='curl https://ipecho.net/plain; echo'
-alias sizeof='du -hd 1'
-alias update='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'
 alias re-source='source ~/.zshrc'
 
 #if in wsl
 if [ -d "/mnt/c/Users/$USER" ] ; then
     alias winhome="cd /mnt/c/Users/$USER"
+fi
+
+if [ -f "$HOME/.bash_aliases" ] ; then
+  source "$HOME/.bash_aliases"
 fi
 
 ###ssh-agent stuff
