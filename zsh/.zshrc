@@ -72,6 +72,8 @@ plugins=(
    docker
    docker-compose
    git
+   zsh-autosuggestions 
+   zsh-syntax-highlighting
    timer
    extract
    dotenv
