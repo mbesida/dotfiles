@@ -140,7 +140,6 @@ fi
 unset env
 ###ssh-agent stuf
 
-
 if [ $(command -v direnv) ] ; then
   eval "$(direnv hook zsh)"
 fi
