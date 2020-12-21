@@ -76,7 +76,6 @@ plugins=(
    zsh-syntax-highlighting
    timer
    extract
-   dotenv
 )
 
 source $ZSH/oh-my-zsh.sh
