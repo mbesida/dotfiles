@@ -18,3 +18,8 @@ fi
 if [ $(command -v kubectl) ] ; then
   alias k="kubectl"
 fi
+
+# prints memory usage(in Mb) of a process passed as a first argument
+function mem {
+  pmap $1 | tail -n 1 | awk '{print strtonum($2)/1024 " Mb"}' 
+}
