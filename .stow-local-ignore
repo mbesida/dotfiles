@@ -1,0 +1,6 @@
+\.gitignore
+
+\.metals
+\.vscode
+
+^/README.*

@@ -1,3 +1,6 @@
 [user]
 	name = mbesida
 	email = maks.besida@gmail.com
+
+[core]
+  excludesfile = "~/.dotfiles/git/ignore" 
