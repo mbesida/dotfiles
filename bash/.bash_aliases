@@ -5,6 +5,8 @@ alias sizeof='du -hd 1'
 alias update='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'
 alias n='nano'
 alias jsonpp='json_pp'
+alias k="kubectl"
+alias b="bat"
 
 if [ $(command -v direnv) ] ; then
   alias di="echo dotenv > .envrc && touch .env && direnv allow"
@@ -14,12 +16,3 @@ if [ $(command -v docker) ] ; then
   alias d="docker"
   alias d-rm="docker ps -a | awk '{if (\$1 != \"CONTAINER\") print \$1}' | xargs -L1 docker rm -f"
 fi
-
-if [ $(command -v kubectl) ] ; then
-  alias k="kubectl"
-fi
-
-# prints memory usage(in Mb) of a process passed as a first argument
-function mem {
-  pmap $1 | tail -n 1 | awk '{print strtonum($2)/1024 " Mb"}' 
-}
