@@ -1,4 +1,5 @@
 alias ll="ls -la"
+alias l="ls -l"
 alias python="python3"
 alias ipp='curl https://ipecho.net/plain; echo'
 alias sizeof='du -hd 1'
