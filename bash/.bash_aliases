@@ -6,8 +6,11 @@ alias sizeof='du -hd 1'
 alias update='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'
 alias n='nano'
 alias jsonpp='json_pp'
-alias k="kubectl"
-alias b="bat"
+
+#if in wsl
+if [ -d "/mnt/c/Users/$USER" ] ; then
+    export winhome="/mnt/c/Users/$USER"
+fi
 
 if [ $(command -v direnv) ] ; then
   alias di="echo dotenv > .envrc && touch .env && direnv allow"

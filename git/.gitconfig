@@ -3,4 +3,4 @@
 	email = maks.besida@gmail.com
 
 [core]
-        excludesfile = "~/.dotfiles/git/ignore" 
+  excludesfile = "~/.dotfiles/git/ignore" 

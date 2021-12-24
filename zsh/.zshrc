@@ -71,11 +71,14 @@ export UPDATE_ZSH_DAYS=5
 plugins=(
    docker
    docker-compose
+   kubectl
+   helm
    git
    zsh-autosuggestions 
    zsh-syntax-highlighting
    timer
    extract
+   dirhistory
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -105,12 +108,7 @@ source $ZSH/oh-my-zsh.sh
 
 # aliases
 alias zshrc="nano ~/.zshrc"
-alias re-source='source ~/.zshrc'
-
-#if in wsl
-if [ -d "/mnt/c/Users/$USER" ] ; then
-    alias winhome="cd /mnt/c/Users/$USER"
-fi
+alias re-source="exec zsh"
 
 if [ -f "$HOME/.bash_aliases" ] ; then
   source "$HOME/.bash_aliases"
