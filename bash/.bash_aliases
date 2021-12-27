@@ -13,5 +13,5 @@ if [ -d "/mnt/c/Users/$USER" ] ; then
 fi
 
 if [ $(command -v direnv) ] ; then
-  alias di="echo dotenv > .envrc && touch .env && direnv allow"
+  alias di="touch .envrc && direnv allow"
 fi
