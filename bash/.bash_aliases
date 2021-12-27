@@ -15,8 +15,3 @@ fi
 if [ $(command -v direnv) ] ; then
   alias di="echo dotenv > .envrc && touch .env && direnv allow"
 fi
-
-if [ $(command -v docker) ] ; then
-  alias d="docker"
-  alias d-rm="docker ps -a | awk '{if (\$1 != \"CONTAINER\") print \$1}' | xargs -L1 docker rm -f"
-fi
