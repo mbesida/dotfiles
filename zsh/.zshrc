@@ -149,11 +149,16 @@ if [ -d "$HOME/.serverless" ] ; then
   export PATH="$HOME/.serverless/bin:$PATH"
 fi
 
-if [ -d "$HOME/.nvm" ]  ; then
+if [ -d "$HOME/.nvm" ] ; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completio
 fi
+
+if [ -d "$HOME/.istioctl" ] ; then
+  export PATH=$PATH:$HOME/.istioctl/bin
+fi
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/$USER/.sdkman"
