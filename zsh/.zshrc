@@ -159,6 +159,11 @@ if [ -d "$HOME/.istioctl" ] ; then
   export PATH=$PATH:$HOME/.istioctl/bin
 fi
 
+if [ -d "$HOME/.local/share/coursier/bin" ] ; then
+  export PATH=$PATH:$HOME/.local/share/coursier/bin
+fi
+
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/$USER/.sdkman"
