@@ -69,10 +69,6 @@ export UPDATE_ZSH_DAYS=5
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-   docker
-   docker-compose
-   kubectl
-   helm
    git
    zsh-autosuggestions 
    zsh-syntax-highlighting
@@ -80,6 +76,18 @@ plugins=(
    extract
    dirhistory
 )
+
+if [[ $(docker -v > /dev/null; echo $?) -eq 0 ]] ; then
+  plugins+=(docker docker-compose)
+fi
+
+if [[ $(command -v kubectl > /dev/null; echo $?) -eq 0 ]] ; then
+  plugins+=(kubectl)
+fi
+
+if [[ $(command -v helm > /dev/null; echo $?) -eq 0 ]] ; then
+  plugins+=(helm)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
