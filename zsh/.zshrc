@@ -191,11 +191,6 @@ if [ -d "$HOME/.local/share/coursier/bin" ] ; then
   export PATH=$PATH:$HOME/.local/share/coursier/bin
 fi
 
-if [ -d "$HOME/.cache/scalacli/local-repo/bin/scala-cli" ] ; then
-  export PATH=$PATH:$HOME/.cache/scalacli/local-repo/bin/scala-cli
-fi
-
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/$USER/.sdkman"
 [[ -s "/home/$USER/.sdkman/bin/sdkman-init.sh" ]] && source "/home/$USER/.sdkman/bin/sdkman-init.sh"
