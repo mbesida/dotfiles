@@ -194,3 +194,11 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/$USER/.sdkman"
 [[ -s "/home/$USER/.sdkman/bin/sdkman-init.sh" ]] && source "/home/$USER/.sdkman/bin/sdkman-init.sh"
+
+
+# >>> scala-cli completions >>>
+if [ $(command -v scala-cli) ] ; then
+  fpath=("/home/mbesida/.local/share/scalacli/completions/zsh" $fpath)
+  compinit
+fi
+# <<< scala-cli completions <<<
