@@ -198,7 +198,7 @@ export SDKMAN_DIR="/home/$USER/.sdkman"
 
 # >>> scala-cli completions >>>
 if [ $(command -v scala-cli) ] ; then
-  fpath=("/home/mbesida/.local/share/scalacli/completions/zsh" $fpath)
+  fpath=("/home/$USER/.local/share/scalacli/completions/zsh" $fpath)
   compinit
 fi
 # <<< scala-cli completions <<<
