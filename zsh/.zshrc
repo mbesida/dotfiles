@@ -191,14 +191,15 @@ if [ -d "$HOME/.local/share/coursier/bin" ] ; then
   export PATH=$PATH:$HOME/.local/share/coursier/bin
 fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/$USER/.sdkman"
-[[ -s "/home/$USER/.sdkman/bin/sdkman-init.sh" ]] && source "/home/$USER/.sdkman/bin/sdkman-init.sh"
-
-
 # >>> scala-cli completions >>>
 if [ $(command -v scala-cli) ] ; then
   fpath=("/home/$USER/.local/share/scalacli/completions/zsh" $fpath)
   compinit
 fi
 # <<< scala-cli completions <<<
+
+if [ -e /home/mbesida/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mbesida/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/$USER/.sdkman"
+[[ -s "/home/$USER/.sdkman/bin/sdkman-init.sh" ]] && source "/home/$USER/.sdkman/bin/sdkman-init.sh"
