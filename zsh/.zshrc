@@ -191,6 +191,10 @@ if [ -d "$HOME/.local/share/coursier/bin" ] ; then
   export PATH=$PATH:$HOME/.local/share/coursier/bin
 fi
 
+if [ -d "/usr/local/go/bin" ] ; then
+  export PATH=$PATH:/usr/local/go/bin
+fi
+
 # >>> scala-cli completions >>>
 if [ $(command -v scala-cli) ] ; then
   fpath=("/home/$USER/.local/share/scalacli/completions/zsh" $fpath)
