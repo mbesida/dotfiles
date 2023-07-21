@@ -196,12 +196,13 @@ if [ -d "/usr/local/go/bin" ] ; then
   export PATH=$PATH:/usr/local/go/bin
 fi
 
-# >>> scala-cli completions >>>
+# >>> scala-cli completions and aliases >>>
 if [ $(command -v scala-cli) ] ; then
   fpath=("/home/$USER/.local/share/scalacli/completions/zsh" $fpath)
   compinit
+  alias sc="scala-cli"
 fi
-# <<< scala-cli completions <<<
+# <<< scala-cli completions aliases <<<
 
 if [ -e /home/mbesida/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mbesida/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
