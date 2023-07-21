@@ -201,7 +201,6 @@ if [ $(command -v scala-cli) ] ; then
   fpath=("/home/$USER/.local/share/scalacli/completions/zsh" $fpath)
   compinit
   alias sc="scala-cli"
-  sadasd
 fi
 # <<< scala-cli completions aliases <<<
 
