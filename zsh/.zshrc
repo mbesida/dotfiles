@@ -117,7 +117,6 @@ source $ZSH/oh-my-zsh.sh
 ### aliases
 alias zshrc="nano ~/.zshrc"
 alias re-source="exec zsh"
-alias ll="ls -la"
 alias python="python3"
 alias ipp='curl https://ipecho.net/plain; echo'
 alias sizeof='du -hd 1'
@@ -127,6 +126,7 @@ alias n='nano'
 #if in wsl
 if [ -d "/mnt/c/Users/$USER" ] ; then
     export winhome="/mnt/c/Users/$USER"
+    alias winhome="cd $winhome"
 fi
 
 if [ $(command -v direnv) ] ; then
@@ -134,7 +134,8 @@ if [ $(command -v direnv) ] ; then
 fi
 
 if [ $(command -v lsd) ] ; then
-  alias l="lsd -lAh"
+  alias l="lsd -l"
+  alias ll="lsd -lAh"
 fi
 
 if [ $(command -v json_pp) ] ; then
