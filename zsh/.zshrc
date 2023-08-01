@@ -171,9 +171,12 @@ if [ $(command -v direnv) ] ; then
   eval "$(direnv hook zsh)"
 fi
 
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+if [ $(command -v fzf) ] ; then
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
 
-if [ -d "$HOME/.serverless" ] ; then
+
+if [[ -d "$HOME/.serverless" && "$PATH" != *"$HOME/.serverless/bin"* ]] ; then
   # Added by serverless binary installer
   export PATH="$HOME/.serverless/bin:$PATH"
 fi
@@ -184,15 +187,15 @@ if [ -d "$HOME/.nvm" ] ; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completio
 fi
 
-if [ -d "$HOME/.istioctl" ] ; then
+if [[ -d "$HOME/.istioctl" && "$PATH" != *"$HOME/.istioctl/bin"* ]] ; then
   export PATH=$PATH:$HOME/.istioctl/bin
 fi
 
-if [ -d "$HOME/.local/share/coursier/bin" ] ; then
+if [[ -d "$HOME/.local/share/coursier/bin" && "$PATH" != *"$HOME/.local/share/coursier/bin"* ]] ; then
   export PATH=$PATH:$HOME/.local/share/coursier/bin
 fi
 
-if [ -d "/usr/local/go/bin" ] ; then
+if [[ -d "/usr/local/go/bin" && "$PATH" != *"/usr/local/go/bin"* ]] ; then
   export PATH=$PATH:/usr/local/go/bin
 fi
 
