@@ -116,7 +116,7 @@ source $ZSH/oh-my-zsh.sh
 
 ### aliases
 alias zshrc="nano ~/.zshrc"
-alias re-source="exec zsh"
+alias re-source="source ~/.zshrc"
 alias python="python3"
 alias ipp='curl https://ipecho.net/plain; echo'
 alias sizeof='du -hd 1'
