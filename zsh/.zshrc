@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+if [[ "$PATH" != *"$HOME/bin:/usr/local/bin"* ]] ; then
+    export PATH=$HOME/bin:/usr/local/bin:$PATH
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$USER/.oh-my-zsh"
