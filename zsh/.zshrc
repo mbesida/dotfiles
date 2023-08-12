@@ -197,8 +197,29 @@ if [[ -d "$HOME/.local/share/coursier/bin" && "$PATH" != *"$HOME/.local/share/co
   export PATH=$PATH:$HOME/.local/share/coursier/bin
 fi
 
-if [[ -d "/usr/local/go/bin" && "$PATH" != *"/usr/local/go/bin"* ]] ; then
-  export PATH=$PATH:/usr/local/go/bin
+if [[ -d "$HOME/.goenv" ]] ; then
+  local currentGoRoot=$GOROOT
+  local currentGoPath=$GOPATH
+
+  export GOENV_ROOT="$HOME/.goenv"
+
+  if [[ "$PATH" != *"$HOME/.goenv/bin"* ]] ; then
+    export PATH="$GOENV_ROOT/bin:$PATH"
+  fi
+
+  eval "$(goenv init -)"
+
+  if [ -z "$currentGoRoot" ]; then
+    export PATH="$GOROOT/bin:$PATH"
+  elif [[ "$currentGoRoot" != "$GOROOT" ]] ; then 
+    export PATH=$(echo "$PATH" | sed "s|$currentGoRoot|$GOROOT|g")
+  fi
+
+  if [ -z "$currentGoPath" ]; then
+    export PATH="$PATH:$GOPATH/bin"
+  elif [[ "$currentGoPath" != "$GOPATH" ]] ; then 
+    export PATH=$(echo "$PATH" | sed "s|$currentGoPath|$GOPATH|g")
+  fi
 fi
 
 # >>> scala-cli completions and aliases >>>
