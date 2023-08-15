@@ -3,6 +3,10 @@ if [[ "$PATH" != *"$HOME/bin:/usr/local/bin"* ]] ; then
     export PATH=$HOME/bin:/usr/local/bin:$PATH
 fi
 
+if [[ -d "$HOME/.local/bin" && "$PATH" != *"$HOME/.local/bin"* ]] ; then
+  export PATH=$HOME/.local/bin:$PATH
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$USER/.oh-my-zsh"
 
@@ -142,6 +146,11 @@ fi
 
 if [ $(command -v json_pp) ] ; then
   alias jsonpp='json_pp'
+fi
+
+if [ $(command -v trash) ] ; then
+  export TRASH="~/.local/share/Trash"
+  alias rm="echo 'Moving files/dirs to $TRASH';trash"
 fi
 ### end aliases
 
