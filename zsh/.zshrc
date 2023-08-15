@@ -230,7 +230,8 @@ if [ $(command -v scala-cli) ] ; then
 fi
 # <<< scala-cli completions aliases <<<
 
-if [ -e /home/mbesida/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mbesida/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+# added by Nix installer
+if [ -e /home/mbesida/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mbesida/.nix-profile/etc/profile.d/nix.sh; fi 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/$USER/.sdkman"
