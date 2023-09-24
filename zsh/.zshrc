@@ -83,7 +83,7 @@ plugins=(
    dirhistory
 )
 
-if [[ $(docker -v > /dev/null; echo $?) -eq 0 ]] ; then
+if [ -e "/usr/share/zsh/vendor-completions/_docker" ] ; then
   plugins+=(docker docker-compose)
 fi
 
@@ -148,7 +148,7 @@ if [ $(command -v json_pp) ] ; then
   alias jsonpp='json_pp'
 fi
 
-if [ $(command -v trash) ] ; then
+if [[ $(command -v trash) && $(command -v python3) ]] ; then
   export TRASH="~/.local/share/Trash"
   alias rm="echo 'Moving files/dirs to $TRASH';trash"
 fi
