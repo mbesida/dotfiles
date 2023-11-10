@@ -1,12 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-if [[ "$PATH" != *"$HOME/bin:/usr/local/bin"* ]] ; then
-    export PATH=$HOME/bin:/usr/local/bin:$PATH
-fi
-
-if [[ -d "$HOME/.local/bin" && "$PATH" != *"$HOME/.local/bin"* ]] ; then
-  export PATH=$HOME/.local/bin:$PATH
-fi
-
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$USER/.oh-my-zsh"
 
@@ -36,7 +27,7 @@ ZSH_THEME="intheloop"
 # DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=5
+export UPDATE_ZSH_DAYS=7
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -186,49 +177,10 @@ if [ $(command -v fzf) ] ; then
   source /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
 
-
-if [[ -d "$HOME/.serverless" && "$PATH" != *"$HOME/.serverless/bin"* ]] ; then
-  # Added by serverless binary installer
-  export PATH="$HOME/.serverless/bin:$PATH"
-fi
-
 if [ -d "$HOME/.nvm" ] ; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completio
-fi
-
-if [[ -d "$HOME/.istioctl" && "$PATH" != *"$HOME/.istioctl/bin"* ]] ; then
-  export PATH=$PATH:$HOME/.istioctl/bin
-fi
-
-if [[ -d "$HOME/.local/share/coursier/bin" && "$PATH" != *"$HOME/.local/share/coursier/bin"* ]] ; then
-  export PATH=$PATH:$HOME/.local/share/coursier/bin
-fi
-
-if [[ -d "$HOME/.goenv" ]] ; then
-  local currentGoRoot=$GOROOT
-  local currentGoPath=$GOPATH
-
-  export GOENV_ROOT="$HOME/.goenv"
-
-  if [[ "$PATH" != *"$HOME/.goenv/bin"* ]] ; then
-    export PATH="$GOENV_ROOT/bin:$PATH"
-  fi
-
-  eval "$(goenv init -)"
-
-  if [ -z "$currentGoRoot" ]; then
-    export PATH="$GOROOT/bin:$PATH"
-  elif [[ "$currentGoRoot" != "$GOROOT" ]] ; then 
-    export PATH=$(echo "$PATH" | sed "s|$currentGoRoot|$GOROOT|g")
-  fi
-
-  if [ -z "$currentGoPath" ]; then
-    export PATH="$PATH:$GOPATH/bin"
-  elif [[ "$currentGoPath" != "$GOPATH" ]] ; then 
-    export PATH=$(echo "$PATH" | sed "s|$currentGoPath|$GOPATH|g")
-  fi
 fi
 
 # >>> scala-cli completions and aliases >>>
