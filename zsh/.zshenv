@@ -29,3 +29,7 @@ if [[ -d "$HOME/.goenv" ]] ; then
   export PATH="$GOROOT/bin:$PATH"
   export PATH="$PATH:$GOPATH/bin"
 fi
+
+if [[ -d "$HOME/.cargo/bin" ]] ; then
+  export PATH=$PATH:$HOME/.cargo/bin
+fi
