@@ -139,10 +139,6 @@ if [ $(command -v json_pp) ] ; then
   alias jsonpp='json_pp'
 fi
 
-if [[ $(command -v trash) && $(command -v python3) ]] ; then
-  export TRASH="~/.local/share/Trash"
-  alias rm="echo 'Moving files/dirs to $TRASH';trash"
-fi
 ### end aliases
 
 ###ssh-agent stuff
