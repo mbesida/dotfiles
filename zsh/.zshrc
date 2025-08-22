@@ -1,3 +1,5 @@
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$USER/.oh-my-zsh"
 
@@ -72,19 +74,9 @@ plugins=(
    timer
    extract
    dirhistory
+   fzf
+   direnv
 )
-
-if [ -e "/usr/share/zsh/vendor-completions/_docker" ] ; then
-  plugins+=(docker docker-compose)
-fi
-
-if [[ $(command -v kubectl > /dev/null; echo $?) -eq 0 ]] ; then
-  plugins+=(kubectl)
-fi
-
-if [[ $(command -v helm > /dev/null; echo $?) -eq 0 ]] ; then
-  plugins+=(helm)
-fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,7 +107,6 @@ source $ZSH/oh-my-zsh.sh
 alias zshrc="nano ~/.zshrc"
 alias re-source="source ~/.zshrc"
 alias python="python3"
-alias ipp='curl https://ipecho.net/plain; echo'
 alias sizeof='du -hd 1'
 alias update='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'
 alias n='nano'
@@ -124,10 +115,6 @@ alias n='nano'
 if [ -d "/mnt/c/Users/$USER" ] ; then
     export winhome="/mnt/c/Users/$USER"
     alias winhome="cd $winhome"
-fi
-
-if [ $(command -v direnv) ] ; then
-  alias di="touch .envrc && direnv allow"
 fi
 
 if [ $(command -v lsd) ] ; then
@@ -165,14 +152,7 @@ fi
 unset env
 ###ssh-agent stuf
 
-if [ $(command -v direnv) ] ; then
-  eval "$(direnv hook zsh)"
-fi
-
-if [ $(command -v fzf) ] ; then
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-fi
-
+# nvm (node version manager) setup
 if [ -d "$HOME/.nvm" ] ; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -187,8 +167,21 @@ if [ $(command -v scala-cli) ] ; then
 fi
 # <<< scala-cli completions aliases <<<
 
-# added by Nix installer
-if [ -e /home/mbesida/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mbesida/.nix-profile/etc/profile.d/nix.sh; fi 
+# Go environment
+if [[ -d "$HOME/.goenv" ]] ; then
+  export GOENV_ROOT="$HOME/.goenv"
+  export PATH="$GOENV_ROOT/bin:$PATH"
+
+  eval "$(goenv init -)"
+
+  export PATH="$GOROOT/bin:$PATH"
+  export PATH="$PATH:$GOPATH/bin"
+fi
+
+# Rust environment
+if [[ -d "$HOME/.cargo/bin" ]] ; then
+  export PATH=$PATH:$HOME/.cargo/bin
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/$USER/.sdkman"
